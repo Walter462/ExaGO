@@ -1,11 +1,11 @@
 // ExaGo Viz Input File
 
-import inputcasedata from "../data/opflowout-70K.json" with { type: "json" };
+import inputcasedata from "../data/case_ACTIVSg10k.json" with { type: "json" };
 
 export default {
   get_casedata() {
     var casedata0 = {};
-    
+
     casedata0.geojsondata = {};
     casedata0.nareas = inputcasedata.nareas;
     casedata0.nzones = inputcasedata.nzones;

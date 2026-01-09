@@ -6,15 +6,18 @@ from langchain.prompts import PromptTemplate, ChatPromptTemplate, HumanMessagePr
 import sqlalchemy as sqldb
 from sqlalchemy import text
 
-
+# [ ] V(ref): add logging (remove print for debugging info)
 def sqlchain(input_text):
+# [ ] V(code): use a better gpt model (check newer model output). Is there any linit for token usage? What if API key stops working (0$ balance case)?
     llm = ChatOpenAI(openai_api_key=config.openai_key,
                      model_name="gpt-3.5-turbo", temperature=0, verbose=True)
+# [ ] V(ref): mixed datadase and gpt setting -> split function
     db = SQLDatabase.from_uri(
         f"postgresql+psycopg2://postgres:{config.sql_key}@localhost:5432/{config.database_name}")
     mydb = sqldb.create_engine(
         f"postgresql+psycopg2://postgres:{config.sql_key}@localhost:5432/{config.database_name}")
     myconnection = mydb.connect()
+# [ ] V(code, architecture): Extract prompts to a separate library
 
     _CUSTOMIZE__TEMPLATE = """You are a PostgreSQL expert. Given an input question, first create a syntactically correct PostgreSQL query to run then look at the results of the query and return the answer to the input question.
     You must always query for the name column (e.g., generation name, line name, bus name). Never query for all columns from a table.  Wrap each column name in double quotes (") to denote them as delimited identifiers.
@@ -30,6 +33,9 @@ def sqlchain(input_text):
     Answer: text answer
 
     """
+# [ ] V: We have to use `f` for """ """ to take {table_info} and {input} as input in  MY_PROMPT_SUFFIX string
+# [ ] V: Analysis {input} and {table_info}: where are that variables?
+# it looks like this part is not ready and these variables are to be added in the future. `f` is not used to avoid code crash.
     MY_PROMPT_SUFFIX = """Only use the following tables:
     {table_info}
 
@@ -42,6 +48,8 @@ def sqlchain(input_text):
 
     text_chain = SQLDatabaseChain.from_llm(
         llm, db, verbose=True, return_intermediate_steps=True, prompt=MY_POSTGRES_PROMPT)
+    # [ ] V: too much commented code remove
+
     # sql_chain = SQLDatabaseChain.from_llm(llm, db, verbose=True,return_intermediate_steps=True, return_direct=True)
 
     # ResultSet = tempr.fetchall()
@@ -107,6 +115,7 @@ def sqlchain(input_text):
             query_dict = []
 
     # print(query_dict)
+    # [ ] V: remove print after logging adoption
     print(text_result)
     print(sql_cmd)
     return {

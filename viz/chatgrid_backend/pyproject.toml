@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chatgrid"
+version = "0.1.0"
+description = "LangGraph agent for ExaGO chatgrid"
+requires-python = ">=3.11"
+dependencies = [
+    "psycopg[binary]>=3.1",
+    "langchain>=0.3",
+    "langchain-core>=0.3",
+    "langchain-openai>=0.3",
+    "langgraph>=0.3",
+    "pydantic>=2.0",
+    "python-dotenv>=1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

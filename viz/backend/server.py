@@ -11,11 +11,19 @@ x = datetime.datetime.now()
 
 # Initializing flask app
 app = Flask(__name__)
-CORS(app)
+
+# Configure CORS to allow frontend requests
+CORS(app, resources={
+    r"/*": {
+        "origins": ["http://localhost:5173", "http://127.0.0.1:5173"],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 
 # Route for seeing a data
-@app.route('/data', methods=['POST'])
+@app.route('/data', methods=['POST', 'OPTIONS'])
 def get_time():
     input_text = request.get_json(force=True)["inputText"]
     # print(request.json)
@@ -28,4 +36,5 @@ def get_time():
 
 # Running app
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Run on all interfaces to accept both localhost and 127.0.0.1
+    app.run(host='0.0.0.0', port=5001, debug=True)

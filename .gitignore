@@ -16,3 +16,49 @@ spack_*
 hiop/
 solution
 myenv/
+
+# ----------------------------
+# Python virtual environments
+# ----------------------------
+**/.venv*/
+**/venv/
+**/env/
+**/ENV/
+**/myenv/
+myenv/
+# Backup virtual envs
+**/venv.bak/
+**/env.bak/
+
+# ----------------------------
+# Python packaging and bytecode
+# ----------------------------
+**/.Python
+**/__pycache__/
+*__pycache__*
+**/*.py[cod]
+**/*$py.class
+
+# ----------------------------
+# Environment variables
+# ----------------------------
+**/.env
+.env
+
+# ----------------------------
+# Editor settings
+# ----------------------------
+**/.vscode/
+.vscode/
+**/*settings*
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ----------------------------
+# OS-specific files
+# ----------------------------
+**/.DS_Store*
+**/Thumbs.db

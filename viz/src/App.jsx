@@ -691,7 +691,7 @@ function App({ refdata = grid_data, refflowdata = grid_flowdata, refflowdata_rea
 
       console.log("Fetching data with params:", postData);
 
-      const response = await fetch(`http://localhost:5000/data`, {
+      const response = await fetch(`http://localhost:5001/data`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(postData),

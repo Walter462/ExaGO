@@ -1,0 +1,38 @@
+
+- [ ] (fix) build viz created2026-02-09 due2026-02-11
+    - [ ] check original mock database
+    - [ ] check integration with map
+        - if it is right -> issue on that
+            - looks like when I `git pull --rebase upstream develop` it removed generated datafiles and venv. Reinstall.
+- [ ] (project notes) update Reading (SQL) architecture [App architecture](app://obsidian.md/20260110_onboarding.md#app-architecture-diagram) using LangGraph including: created2026-01-12 due2026-02-09
+    - [Human in the loop](app://obsidian.md/20260111_architecture-human-in-the-loop.md)
+    - [Security checks for SQL requests](app://obsidian.md/20260111_architecture-sql-requests-security.md)
+    - [Context management](app://obsidian.md/20260111_architecture-context-management.md)
+- [ ] (build) persistent storage: Server with SQL and Redis for chat state flow, data sandbox, and long-term user-chat consistency (open-source version (aegra) created2026-02-08 due2026-02-09
+    - [ ] (build) agent server: multi-platfrom image.
+- [ ] Q: if I change [-2] messges can I return to [0] message of the previous branch? (frontend chat, backend feature) created2026-02-21
+- [ ] (install) build ExaGo created2026-01-11
+- [ ] (debug) langsmith debugger ([vscode LangSmith debugger](https://docs.langchain.com/langsmith/quick-start-studio#optional-attach-a-debugger) )created2026-02-22
+- [ ] (feat) [LLM](https://docs.langchain.com/oss/python/integrations/providers/overview) provider and model selection created2026-02-04
+    - configurable agent parameters. Define a model at runtime?
+- [ ] Q: Token count and budgeting?
+- [ ] (build) delete unused files (looks like early LLM frontend implementations)created2026-02-02
+    - [ ] (test) collect and add usecases & delete dependsOnknt6gu created2026-02-02 due2026-02-09
+        - [viz/src/sqlagent.js](https://github.com/Walter462/ExaGO/blob/d7cd3146d96fd8b88958aeaa647b0667b92f40b4/viz/src/sqlagent.js)
+        - [viz/src/textagent.js](https://github.com/Walter462/ExaGO/blob/d7cd3146d96fd8b88958aeaa647b0667b92f40b4/viz/src/textagent.js)
+        - [https://github.com/Walter462/ExaGO/blob/d7cd3146d96fd8b88958aeaa647b0667b92f40b4/viz/src/jsonagent.js](https://github.com/Walter462/ExaGO/blob/d7cd3146d96fd8b88958aeaa647b0667b92f40b4/viz/src/jsonagent.js)
+- [ ] (test) adopt Unit tests, LLM judge. See: [LangChainTesting](https://docs.langchain.com/oss/python/langchain/test) created2026-02-04
+- [ ] (test) pytest (test SQL reading tools). GutHub actions?
+- [ ] (test) and check database from Eve created2026-02-21
+- [ ] (feat) SQL context window overflow: suggest aggregating and summarizing ([20260111_architecture-human-in-the-loop](app://obsidian.md/20260111_architecture-human-in-the-loop)) created2026-02-22
+- [ ] (feat) Human-in-the-loop: SQL query monitoring and approval (e.g., writes to source DB, key words: DELETE, MERGE, DROP etc. ) and other runtime interruptions for human decisions (issue #191) created2026-02-22
+- [ ] (build) offload SQL (parse) to .m by user request. created2026-02-21
+- [ ] (feat) - Power systems expert LLM node: Load skills to LLM (MCP, RAG) before tool calling, or create a power-system expert sub-agent [Load skills to LLM before tool calling](https://docs.langchain.com/oss/python/langchain/multi-agent/skills-sql-assistant) (issue # 191)
+- [ ] Q: Create special Agent read-only user? Which database (ChatGrid or spare one which is the main data source)?
+- [ ] Q: Use 2 SQL databases: ChatGrid SandBox (depends on building with aegra) and Main(source DB)
+- [ ] (feat) create a special DB user for agent
+- [ ] (feat) limit agent DB user rights on DB side (together with prompt engineering guardrails) created2026-02-27
+- [ ] (issue) port picking strategy created2026-01-18
+    - REQUIREMENTS: front <-> backend synching
+    - IDEAS: check if a port is free script/tool, vite proxy, environment variable)
+    

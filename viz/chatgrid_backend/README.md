@@ -20,8 +20,9 @@ Open `.env` with any text editor and fill-in required data.
 
 Do the following to install Python virtual environment and its all dependencies.
 ```bash
-chatgrid_backend$ pip install -U uv   # install uv python environment manager
-chatgrid_backend$ uv sync             # install python venv and environment
+chatgrid_backend$ pip install -U langgraph  # install langgraph
+chatgrid_backend$ pip install -U uv         # install uv python environment manager
+chatgrid_backend$ uv sync                   # install python venv and environment
 ```
 # 2. Start app
 ## 2.1. Start the LangGraph Server.

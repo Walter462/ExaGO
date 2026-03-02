@@ -395,10 +395,10 @@ ExaGO/viz$ sudo apt install python3
 # python dependencies install
 ExaGO/viz$ cd backend/
 ExaGO/viz$ pip3
-# Eve: does not work
+# does not work
 ExaGO/viz$ pip3 install -r requirements.txt 
 ExaGO/viz$ python3 -m venv .venv
-# Eve: works 
+# works 
 # python intall
 ExaGO/viz$ sudo apt install python3.12-venv
 # python venv

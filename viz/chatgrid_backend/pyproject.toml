@@ -6,17 +6,18 @@ build-backend = "hatchling.build"
 name = "chatgrid"
 version = "0.1.0"
 description = "LangGraph agent for ExaGO chatgrid"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.14"
 dependencies = [
-    "psycopg[binary]>=3.1",
-    "langchain>=0.3",
-    "langchain-core>=0.3",
-    "langchain-openai>=0.3",
-    "langgraph>=0.3",
-    "langgraph-api>=0.7",
-    "langgraph-cli>=0.4",
-    "pydantic>=2.0",
-    "python-dotenv>=1.0",
+    "psycopg[binary]>=3.3",
+    "langchain>=1.2",
+    "langchain-core>=1.2",
+    "langchain-openai>=1.1",
+    "langgraph>=1.0",
+    "langgraph-api>=0.7.60",
+    "langgraph-cli>=0.4.12",
+    "pydantic>=2.12",
+    "python-dotenv>=1.2",
+    "langgraph-sdk>=0.3.8",
 ]
 
 [tool.hatch.build.targets.wheel]

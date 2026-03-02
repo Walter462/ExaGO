@@ -13,6 +13,8 @@ dependencies = [
     "langchain-core>=0.3",
     "langchain-openai>=0.3",
     "langgraph>=0.3",
+    "langgraph-api>=0.7",
+    "langgraph-cli>=0.4",
     "pydantic>=2.0",
     "python-dotenv>=1.0",
 ]
